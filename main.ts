@@ -13,10 +13,22 @@ const app = express();
 app.use(express.text());
 app.use(morgan('dev'));
 
+app.use(( req, res, next ) => { 
+    if (req.path == "/health") {
+        next();
+        return;
+    }
+if (req.headers['authorization'] != process.env.AUTH_TOKEN) {
+    res.status(401).send("Unauthorized");
+    return;
+}
+    next();
+});
+
 
 app.post('/', async ( req, res ) => {
     const message = req.body;
-    assert(message instanceof String, "Message must be a string, instead message is %o", message);
+    assert(typeof message == "string", "Message must be a string, instead message is %o", message);
     const agent = new BskyAgent({ service: "https://bsky.social" });
     await agent.login({
         identifier: config.BSKY_IDENTIFIER,
