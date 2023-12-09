@@ -1,0 +1,29 @@
+{
+  "name": "bskypost",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/morgan": "^1",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "@atproto/api": "^0.7.2",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.4",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "multiformats": "^12.1.3"
+  },
+  "volta": {
+    "node": "21.4.0"
+  }
+}

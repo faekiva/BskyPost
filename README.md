@@ -1,0 +1,1 @@
+Content type needs to be "text/plain" for posts to this to work
